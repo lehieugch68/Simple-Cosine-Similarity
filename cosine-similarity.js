@@ -22,14 +22,14 @@ function strToVector(str, dict) {
 
 function cosineCal(A, B) {
    	let dotProduct = 0;
-    let mA = 0, mB = 0;
-    for (let i = 0; i < A.length; i++) {
-        dotProduct += (A[i] * B[i]);
-        mA += (A[i]*A[i]);
-        mB += (B[i]*B[i]);
-    }
-    let cosine = (dotProduct)/((Math.sqrt(mA))*(Math.sqrt(mB)));
-    return cosine;
+   	let mA = 0, mB = 0;
+    	for (let i = 0; i < A.length; i++) {
+        	dotProduct += (A[i] * B[i]);
+        	mA += (A[i]*A[i]);
+        	mB += (B[i]*B[i]);
+   	}
+    	let cosine = (dotProduct)/((Math.sqrt(mA))*(Math.sqrt(mB)));
+   	return cosine;
 }
 
 function removeAccents(str){
