@@ -1,6 +1,6 @@
 function cosineSimilarity(str1, str2, term = false) {
-	let str1Words = term ? str1.trim().split(" ").map(w => {return w.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, '')}) : str1.trim().toLowerCase().replace(/\s+/g, '').replace(/[^a-zA-Z0-9 ]/g, '');
-	let str2Words = term ? str2.trim().split(" ").map(w => {return w.toLowerCase().replace(/[^a-zA-Z0-9 ]/g, '')}) : str2.trim().toLowerCase().replace(/\s+/g, '').replace(/[^a-zA-Z0-9 ]/g, '');
+	let str1Words = term ? str1.trim().split(" ").map(w => {return removeAccents(w.toLowerCase()).replace(/[^a-zA-Z0-9 ]/g, '')}) : removeAccents(str1.trim().toLowerCase().replace(/\s+/g, '')).replace(/[^a-zA-Z0-9 ]/g, '');
+	let str2Words = term ? str2.trim().split(" ").map(w => {return removeAccents(w.toLowerCase()).replace(/[^a-zA-Z0-9 ]/g, '')}) : removeAccents(str2.trim().toLowerCase().replace(/\s+/g, '')).replace(/[^a-zA-Z0-9 ]/g, '');
 	let dict = Array.from(new Set(str1Words.concat(str2Words)));
 	let str1Vector = strToVector(str1Words, dict);
 	let str2Vector = strToVector(str2Words, dict);
@@ -32,8 +32,8 @@ function cosineCal(A, B) {
     return cosine;
 }
 
-/*function removeAccents(str){
+function removeAccents(str){
 	return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D');
-}*/
+}
 
 module.exports = cosineSimilarity;
