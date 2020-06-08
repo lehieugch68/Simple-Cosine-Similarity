@@ -4,7 +4,7 @@ function cosineSimilarity(str1, str2, term = false) {
 	let dict = Array.from(new Set(str1Words.concat(str2Words)));
 	let str1Vector = strToVector(str1Words, dict);
 	let str2Vector = strToVector(str2Words, dict);
-	let cosineSimilarity = cosineCal(str1Vector, str2Vector);
+	let cosineSimilarity = getCosine(str1Vector, str2Vector);
 	return cosineSimilarity;
 }
 
@@ -20,7 +20,7 @@ function strToVector(str, dict) {
 	return vector;
 }
 
-function cosineCal(A, B) {
+function getCosine(A, B) {
    	let dotProduct = 0;
     let mA = 0, mB = 0;
     for (let i = 0; i < A.length; i++) {
