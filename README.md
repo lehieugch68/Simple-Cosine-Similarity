@@ -2,13 +2,13 @@
 
 A simple library for compute cosine-similarity between two strings.
 
-Install:
+## Install:
 
 ```
 npm i simple-cosine-similarity
 ```
 
-Example:
+## Usage:
 
 ```
 const cosineSimilarity = require('simple-cosine-similarity')
